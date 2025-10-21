@@ -1,6 +1,8 @@
-import React from 'react';
-
+import React, { use, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../components/AuthProvider';
 const Sidebar = () => {
+  const {user,loading}= useContext(AuthContext)
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
   {/* Brand Logo */}
@@ -16,7 +18,11 @@ const Sidebar = () => {
         <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
       </div>
       <div className="info">
-        <a href="#" className="d-block">Alexander Pierce</a>
+          {user ? (
+            <NavLink to="/profile" className="d-block">{user.username}</NavLink>
+          ) : (
+            <span className="d-block text-muted">Guest</span>
+          )}
       </div>
     </div>
     {/* SidebarSearch Form */}
@@ -45,22 +51,22 @@ const Sidebar = () => {
           </a>
           <ul className="nav nav-treeview">
             <li className="nav-item">
-              <a href="/dashboard1" className="nav-link">
+              <NavLink to="/dashboard" className="nav-link">
                 <i className="far fa-circle nav-icon" />
                 <p>Dashboard v1</p>
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a href="/dashboard`2" className="nav-link active">
+              <NavLink to="/dashboard1" className="nav-link ">
                 <i className="far fa-circle nav-icon" />
                 <p>Dashboard v2</p>
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a href="./index3.html" className="nav-link">
+              <NavLink to="/dashboard2" className="nav-link">
                 <i className="far fa-circle nav-icon" />
                 <p>Dashboard v3</p>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </li>

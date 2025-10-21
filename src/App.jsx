@@ -13,14 +13,14 @@ function App() {
     <>
       
 
-      <body className="hold-transition  sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
         <div className="wrapper" >
           
         <AuthProvider>
       <RouterProvider router={router} />
       </AuthProvider>
       </div>
-      </body>
+
     </>
   );
 } 

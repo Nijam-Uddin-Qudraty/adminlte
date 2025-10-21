@@ -620,7 +620,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="content-wrapper">
+    <div >
       {/* Content Header (Page header) */}
       <section className="content-header">
         <div className="container-fluid">

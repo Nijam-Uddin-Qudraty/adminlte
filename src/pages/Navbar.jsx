@@ -60,12 +60,65 @@ const Navbar = () => {
     <li className="nav-item">
       <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
     </li>
-    <li className="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" className="nav-link">Home</a>
-    </li>
-    <li className="nav-item d-none d-sm-inline-block">
-      <a href="#" className="nav-link">Contact</a>
-    </li>
+          {user ? (
+            <>
+              {user.is_staff && (
+                <li className="nav-item">
+                  <NavLink 
+                    to="/dashboard" 
+                    className={({ isActive }) => 
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              )}
+              <li className="nav-item">
+                <NavLink 
+                  to="/profile" 
+                  className={({ isActive }) => 
+                    `nav-link ${isActive ? "active" : ""}`
+                  }
+                >
+                  Profile
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink 
+                  to="/logout" 
+                  onClick={logout} 
+                  className="nav-link"
+                >
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-item">
+                <NavLink 
+                  to="/login" 
+                  className={({ isActive }) => 
+                    `nav-link ${isActive ? "active" : ""}`
+                  }
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink 
+                  to="/register" 
+                  className={({ isActive }) => 
+                    `nav-link ${isActive ? "active" : ""}`
+                  }
+                >
+                  Register
+                </NavLink>
+              </li>
+            </>
+          )}
+        
   </ul>
   {/* Right navbar links */}
   <ul className="navbar-nav ml-auto">

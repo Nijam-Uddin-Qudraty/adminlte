@@ -15,9 +15,9 @@ export default function Layout() {
       <section className="content-wrapper">
 
           <Outlet/>
-      </section>
-          <Sidebar2 />
-          <Footer />
+        </section>
+        <Sidebar2 />
+        <Footer />
         </div>
 
   );
